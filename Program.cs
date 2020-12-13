@@ -6,6 +6,17 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
+
+	static class AppState
+	{
+		const int questionsCount = 14;
+		bool[] isAnswerCorrect;
+		public AppState()
+		{
+			isAnswerCorrect = new bool[questionsCount]
+		}
+	}
+
     static class Program
     {
         /// <summary>
@@ -16,7 +27,8 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+	    appState = new AppState;
+            Application.Run(new Form1(appState));
         }
     }
 }
